@@ -22,6 +22,8 @@ crossbeam = "0.8"
 tarpc = { version = "0.33.0", features = ["full"] }
 anyhow = "1.0"
 tarpc-plugins = "0.12.0"
+dashmap = "5.4.0"
+easybench = "1.1.1"
 
 [[bin]]
 name="async-chain"
@@ -29,8 +31,12 @@ path="src/async_chain.rs"
 
 [[bin]]
 name="oneshot-perf"
-path="src/oneshot_perf.rs"
+path="channel/oneshot_perf.rs"
 
 [[bin]]
 name="learn-tarpc"
-path="src/learn_tarpc.rs"
+path="tarpc/learn_tarpc.rs"
+
+[[bin]]
+name="learn-tcp"
+path="tcp/learn_tcp.rs"
