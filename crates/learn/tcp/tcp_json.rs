@@ -1,18 +1,19 @@
 use dashmap::DashMap;
 use tokio::net::{ TcpListener, TcpStream };
 use tokio::io::{ AsyncReadExt, AsyncWriteExt };
+use tokio::sync::RwLock;
 use bytes::BytesMut;
 use std::net::SocketAddr;
-use std::sync::{Arc, RwLock};
+use std::sync::{Arc};
 use anyhow::Error;
 
+// 서버 자체가 Arc<RwLock<Server>>가 되는 것이 좋다. 
 struct Server {
     addr: String,
-    sessions: Arc<DashMap<String, Arc<RwLock<Session>>>>,
+    sessions: DashMap<String, Arc<RwLock<Session>>>,
 }
 
 struct Session {
-    sessions: Arc<DashMap<String, Arc<RwLock<Session>>>>,
     stream: TcpStream,
     addr: SocketAddr,
     buffer: BytesMut,
@@ -26,7 +27,7 @@ impl Server {
     pub fn new(addr: String) -> Self {
         Self {
             addr,
-            sessions: Arc::new(DashMap::new()),
+            sessions: DashMap::new(),
         }
     }
 
@@ -40,14 +41,23 @@ impl Server {
             // 서버에 접근할 필요가 있다. 싱글톤처럼.
 
             let stream = server.accept().await?;
-            let sessions = self.sessions.clone();
-            let session = Arc::new(RwLock::new(Session::new(sessions, stream.0, stream.1)));
+            let session = Arc::new(RwLock::new(Session::new(stream.0, stream.1)));
+
             let working_session = session.clone();
 
-            self.sessions.insert(session.addr.to_string(), session);
+            let addr : String;
+            {
+                let guard = session.read().await;
+                addr = guard.addr.to_string();
+            }
+
+            self.sessions.insert(addr, session);
 
             tokio::spawn(async move {
-                let result = working_session.run().await;
+                // 좋은 실패. RwLock으로 mut 참조를 얻으려고 했으나 Send/Sync가 아님
+                // tokio::sync::RwLock은 Send/Sync로 await를 갖고 있다. 
+                let mut guard = working_session.write().await;
+                let result = guard.run().await;
                 if let Err(e) = result {
                     println!("{}", e);
                 }
@@ -63,12 +73,10 @@ impl Server {
 impl Session {
     // new
     fn new(
-        sessions: Arc<DashMap<String, Arc<RwLock<Session>>>>,
         stream: TcpStream,
         addr: SocketAddr
     ) -> Self {
         Self {
-            sessions,
             stream,
             addr,
             buffer: BytesMut::with_capacity(4096),
