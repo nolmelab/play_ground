@@ -1,9 +1,6 @@
 # playground
 
-play series. This is a playground lbirary and examples to help developing massive 
-multiplayer services such as games.
-
-learn crate에서 연습을 하면서, play crate를 만든다. 
+To make building games is a play.
 
 ## 목표 
 
@@ -23,45 +20,21 @@ learn crate에서 연습을 하면서, play crate를 만든다.
 
 - loggig / tracing 
 
-- async / await 
-  - future 
-  - pin / pin project 
-  - waker 
+- asio 
+  - proactor
 
-- tcp 통신 
-  - TcpStream, TcpListener, Codec
-  - Json codec, serde-json
-  - Flexbuffer
+- tcp 
+  - flatbuffers
+  - libsodium
 
-- channel   
-  - mpsc, oneshot 
-  - performance benchmarking 
-
-- sqlx 
-  - postgres
+- nanodbc
+  - PostgreSQL
     - stored procedure
-  - query, sp 연동 
 
 - redis 
   - set, get, hset, hset, sorted list 
   - pub / sub 
   - clustering 
-
-- reqwest 
-  - rest api + hyper server
-  - jwt 사용예 
-
-- chat 
-  - move, message, action, topic, tag, capacity, private, invite
-  - client tui 
-  - encryption 
-    - sodium 
-  - login 
-    - database 
-    - redis cache 
-  - instance management 
-    - search for topic rooms 
-    - elasticsearch? 
 
 - mo 
   - design schema table loading 
@@ -88,8 +61,7 @@ learn crate에서 연습을 하면서, play crate를 만든다.
   - sector (grid) 
     - traffic filtering 
     - fast search for entities
-  - crowd 
-
+  - detour (from recastdetour)
   
 - live / service functionality 
   - platform integration
