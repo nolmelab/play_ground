@@ -19,6 +19,16 @@ There are several build tools widely used.
 We will use cmake as a default build tool since it is widely used 
 and vcpkg will be used as a C++ package manager.
 
+## vscode
+
+- codespace + chrome
+    - make it consistent everywhere
+    - then things become easier
+    - chrome is working better with codespace
+
+
+
+    
 
 
 
