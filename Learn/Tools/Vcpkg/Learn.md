@@ -46,3 +46,24 @@ Error:
 
 target_link_libraries must follow add_executable() since it requires the target!
 
+### vscode setting
+
+To make vscode work as IDE using cmake, there are required setups:
+- configure settings.json for user 
+    "cmake.configureSettings": {
+       "CMAKE_TOOLCHAIN_FILE" : "/opt/vcpkg/scripts/buildsystems/vcpkg.cmake" 
+    },
+- restart vscode 
+  - then it works without manually including vcpkg.cmake file
+
+
+## Build & Run 
+
+vscode command palette has :
+- CMake: Configure
+- CMake: Build
+- CMake: Run wihtout Debugging
+  - Shows a list of executable targets automagically
+
+Great! 
+
