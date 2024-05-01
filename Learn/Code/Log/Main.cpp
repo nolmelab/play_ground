@@ -2,6 +2,7 @@
 
 int main() 
 {
+  spdlog::info("Hello spdlog");
 
   return 0;
 }

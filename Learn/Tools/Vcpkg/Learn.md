@@ -56,6 +56,31 @@ To make vscode work as IDE using cmake, there are required setups:
 - restart vscode 
   - then it works without manually including vcpkg.cmake file
 
+- include and auto completion 
+  - does not work sometimes
+  - why?
+  - it is not automatic. we need to configure:
+
+```json
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/opt/vcpkg/installed/x64-linux/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}   
+```
 
 ## Build & Run 
 
@@ -66,4 +91,6 @@ vscode command palette has :
   - Shows a list of executable targets automagically
 
 Great! 
+
+CMake: Set Debug Target vscode command sets the target.
 
