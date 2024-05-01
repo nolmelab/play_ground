@@ -12,9 +12,9 @@ target_include_directories(Step4 PUBLIC "${PROJECT_SOURCE_DIR}")
 
 # CMAKE_CURRENT_SOURCE_DIR 
 
-set(gcc_like_cxx "$<COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang,GNU,LCC>")
-set(msvc_cxx "$<COMPILE_LANG_AND_ID:CXX,MSVC>")
+#set(gcc_like_cxx "$<COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang,GNU,LCC>")
+#set(msvc_cxx "$<COMPILE_LANG_AND_ID:CXX,MSVC>")
 
-include(CMakePrintHelpers)
-cmake_print_variables(gcc_like_cxx)
-cmake_print_variables(msvc_cxx)
+#include(CMakePrintHelpers)
+#cmake_print_variables(gcc_like_cxx)
+#cmake_print_variables(msvc_cxx)
