@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(CMAKE_COMMAND) -E cmake_progress_start /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2/CMakeFiles /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2/Math//CMakeFiles/progress.marks
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Math/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2/CMakeFiles /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2//CMakeFiles/progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Math/clean
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -103,80 +103,68 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Math/preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Math/preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-Math/CMakeFiles/Math.dir/rule:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Math/CMakeFiles/Math.dir/rule
-.PHONY : Math/CMakeFiles/Math.dir/rule
+#=============================================================================
+# Target rules for targets named Step2
 
-# Convenience name for target.
-Math: Math/CMakeFiles/Math.dir/rule
+# Build rule for target.
+Step2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Step2
+.PHONY : Step2
+
+# fast build rule for target.
+Step2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Step2.dir/build.make CMakeFiles/Step2.dir/build
+.PHONY : Step2/fast
+
+#=============================================================================
+# Target rules for targets named Math
+
+# Build rule for target.
+Math: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Math
 .PHONY : Math
 
 # fast build rule for target.
 Math/fast:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f Math/CMakeFiles/Math.dir/build.make Math/CMakeFiles/Math.dir/build
+	$(MAKE) $(MAKESILENT) -f Math/CMakeFiles/Math.dir/build.make Math/CMakeFiles/Math.dir/build
 .PHONY : Math/fast
 
-Math.o: Math.cpp.o
-.PHONY : Math.o
+Step2.o: Step2.cpp.o
+.PHONY : Step2.o
 
 # target to build an object file
-Math.cpp.o:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f Math/CMakeFiles/Math.dir/build.make Math/CMakeFiles/Math.dir/Math.cpp.o
-.PHONY : Math.cpp.o
+Step2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Step2.dir/build.make CMakeFiles/Step2.dir/Step2.cpp.o
+.PHONY : Step2.cpp.o
 
-Math.i: Math.cpp.i
-.PHONY : Math.i
-
-# target to preprocess a source file
-Math.cpp.i:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f Math/CMakeFiles/Math.dir/build.make Math/CMakeFiles/Math.dir/Math.cpp.i
-.PHONY : Math.cpp.i
-
-Math.s: Math.cpp.s
-.PHONY : Math.s
-
-# target to generate assembly for a file
-Math.cpp.s:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f Math/CMakeFiles/Math.dir/build.make Math/CMakeFiles/Math.dir/Math.cpp.s
-.PHONY : Math.cpp.s
-
-Sqrt.o: Sqrt.cpp.o
-.PHONY : Sqrt.o
-
-# target to build an object file
-Sqrt.cpp.o:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f Math/CMakeFiles/Math.dir/build.make Math/CMakeFiles/Math.dir/Sqrt.cpp.o
-.PHONY : Sqrt.cpp.o
-
-Sqrt.i: Sqrt.cpp.i
-.PHONY : Sqrt.i
+Step2.i: Step2.cpp.i
+.PHONY : Step2.i
 
 # target to preprocess a source file
-Sqrt.cpp.i:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f Math/CMakeFiles/Math.dir/build.make Math/CMakeFiles/Math.dir/Sqrt.cpp.i
-.PHONY : Sqrt.cpp.i
+Step2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Step2.dir/build.make CMakeFiles/Step2.dir/Step2.cpp.i
+.PHONY : Step2.cpp.i
 
-Sqrt.s: Sqrt.cpp.s
-.PHONY : Sqrt.s
+Step2.s: Step2.cpp.s
+.PHONY : Step2.s
 
 # target to generate assembly for a file
-Sqrt.cpp.s:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(MAKE) $(MAKESILENT) -f Math/CMakeFiles/Math.dir/build.make Math/CMakeFiles/Math.dir/Sqrt.cpp.s
-.PHONY : Sqrt.cpp.s
+Step2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Step2.dir/build.make CMakeFiles/Step2.dir/Step2.cpp.s
+.PHONY : Step2.cpp.s
 
 # Help Target
 help:
@@ -187,12 +175,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Math"
-	@echo "... Math.o"
-	@echo "... Math.i"
-	@echo "... Math.s"
-	@echo "... Sqrt.o"
-	@echo "... Sqrt.i"
-	@echo "... Sqrt.s"
+	@echo "... Step2"
+	@echo "... Step2.o"
+	@echo "... Step2.i"
+	@echo "... Step2.s"
 .PHONY : help
 
 
@@ -204,6 +190,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/nolmelab/codespace/playground/Learn/Tools/CMake/Step2 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
