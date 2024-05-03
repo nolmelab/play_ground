@@ -1,4 +1,4 @@
-#include <Math/Sqrt.hpp>
+#include <math/sqrt.hpp>
 #include <iostream>
 
 int main()

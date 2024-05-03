@@ -7,7 +7,7 @@ Layout also directs development in that:
 Parallel or iterative development is the most important in designing
 the project layout.
 
-## Single Tree - PlayGround
+## Single Tree - playground
 
 - Include are shared for all subprojects except ones under Learn 
 - Top level CMakeLists.txt has several executable targets for:
@@ -22,8 +22,10 @@ the project layout.
 
 ## Naming
 
-- Strict PascalCase 
-- Even for acronyms
+- changed to snake cases except types
+  - folders are considered as variables. 
+  - filename also
+
 
 
 

@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.22)
-project("Sample")
+cmake_minimum_required(VERSION 3.15)
+project("sample")
 
 # set(CMAKE_TOOLCHAIN_FILE "/opt/vcpkg/scripts/buildsystems/vcpkg.cmake")
 # set(VCPKG_TARGET_TRIPLET "x64-linux")
@@ -7,6 +7,6 @@ project("Sample")
 
 find_package(spdlog CONFIG REQUIRED)
 
-add_executable(Sample Main.cpp)
-target_link_libraries(Sample PRIVATE spdlog::spdlog)
+add_executable(sample main.cpp)
+target_link_libraries(sample PRIVATE spdlog::spdlog)
 

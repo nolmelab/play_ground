@@ -94,3 +94,23 @@ Great!
 
 CMake: Set Debug Target vscode command sets the target.
 
+## Codespace 
+
+It is quite straightforward:
+- install vcpkg 
+- install vcpkg libraries 
+- install vscode extensions: 
+  - c/c++
+  - cmake 
+
+Then it works since configurations of vcpkg folder is same. 
+
+Minor problems encounterd: 
+- cmake version is 3.16.3 
+  - changed minimum required version to 3.16
+
+
+  
+
+
+
