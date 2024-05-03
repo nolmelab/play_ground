@@ -8,6 +8,13 @@
 
 TEST_CASE("spdlog")
 {
+    /// basic colored console 
+    SUBCASE("colored console")
+    {
+        auto console = spdlog::stdout_color_mt("console");
+        spdlog::get("console")->info("hello console");
+    }
+
     /// add multiple sinks. Essential ones are daily file, colored console, async logger
     SUBCASE("multi sinks")
     {
@@ -32,6 +39,13 @@ TEST_CASE("spdlog")
 
         spdlog::register_logger(logger);
 
-        spdlog::get("system")->info("hello");
+        spdlog::get("system")->info("hello system");
+    }
+
+    /// set custom pattern
+    SUBCASE("set custom pattern")
+    {
+        spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [thread %t] %v");
+        spdlog::get("console")->info("hello console");
     }
 }
