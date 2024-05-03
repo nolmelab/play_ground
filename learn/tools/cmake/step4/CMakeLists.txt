@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.5)
-project("Step4" VERSION 1.0)
+project("step4" VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
 
-add_subdirectory(Math)
-add_executable(Step4 Step4.cpp)
+add_subdirectory(math)
+add_executable(step4 step4.cpp)
 
-target_link_libraries(Step4 Math)
-target_include_directories(Step4 PUBLIC "${PROJECT_SOURCE_DIR}")
+target_link_libraries(step4 math)
+target_include_directories(step4 PUBLIC "${PROJECT_SOURCE_DIR}")
 
 # CMAKE_CURRENT_SOURCE_DIR 
 
