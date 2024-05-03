@@ -30,4 +30,15 @@ TEST_CASE("test_logger")
 
     playground::Logger::get()->flush();
   }
+
+  SUBCASE("log time test")
+  {
+    PG_INFO("first");
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    PG_INFO("second");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    PG_INFO("third");
+
+    playground::Logger::get()->flush();
+  }
 }
