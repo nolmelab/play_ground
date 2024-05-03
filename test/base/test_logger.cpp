@@ -1,6 +1,6 @@
 #include <doctest/doctest.h>
 
-#include <playground/core/logger.hpp>
+#include <playground/base/logger.hpp>
 
 /// test logger 
 /**

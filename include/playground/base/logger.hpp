@@ -1,6 +1,6 @@
 #pragma once
 
-#include <playground/core/macros.hpp>
+#include <playground/base/macros.hpp>
 #include <spdlog/spdlog.h>
 #include <atomic>
 

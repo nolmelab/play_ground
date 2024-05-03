@@ -5,7 +5,7 @@ project("playground")
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
 
-add_subdirectory(learn)
+add_subdirectory(exercise)
 add_subdirectory(test)
 add_subdirectory(example)
 add_subdirectory(source)
