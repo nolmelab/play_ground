@@ -8,7 +8,7 @@
       "type": "lldb",
       "request": "launch",
       "name": "Debug",
-      "program": "${workspaceFolder}/build/learn/code/log/learn_log",
+      "program": "${workspaceFolder}/build/test/core/test_core",
       "args": [],
       "cwd": "${workspaceFolder}"
     }

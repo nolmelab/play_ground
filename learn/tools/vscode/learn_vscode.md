@@ -38,9 +38,10 @@ vscode can be an ide with cmake.
 }
 ```
 
-## forward / backward
+## CAPSLOCK to CTRL
 
-Go has the menu item. CTRL + SHIFT + -, CTRL + ALT + -
+- essential for vim programmer
+- how to do it on Ubuntu?
 
 
 

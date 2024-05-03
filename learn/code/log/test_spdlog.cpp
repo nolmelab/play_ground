@@ -32,7 +32,6 @@ TEST_CASE("spdlog")
         );
 
         spdlog::register_logger(logger);
-
         spdlog::get("system")->info("hello system");
     }
 
@@ -42,8 +41,21 @@ TEST_CASE("spdlog")
         // %n : logger name 
         // %L : level
         // %t : thread
+        // %^ : color range start, %$ color range end
+        // %v : message
         // spdlog::set_pattern("[%H:%M:%S][%n][%^%L%$][%t] %v");
-        spdlog::set_pattern("[%H:%M:%S][%^%L%$][%t] %v");
+        // 
+        // @see https://internal.dunescience.org/doxygen/classspdlog_1_1pattern__formatter.html
+        spdlog::set_pattern("[%Y-%m-%d %H:%M:%S.%e] [%^%L%$][%t] %v");
         spdlog::get("console")->info("hello console");
+    }
+
+    SUBCASE("design logger")
+    {
+        // - PG_INFO(s) 
+        //      - logger singleton
+        //      - initialize at construction 
+        //      - simple is the best
+
     }
 }
