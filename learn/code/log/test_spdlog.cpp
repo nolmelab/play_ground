@@ -15,12 +15,6 @@ TEST_CASE("spdlog")
         spdlog::get("console")->info("hello console");
     }
 
-    /// add multiple sinks. Essential ones are daily file, colored console, async logger
-    SUBCASE("multi sinks")
-    {
-
-    }
-
     /// Almost the final system logger
     SUBCASE("async logger with multi sinks")
     {
@@ -45,7 +39,11 @@ TEST_CASE("spdlog")
     /// set custom pattern
     SUBCASE("set custom pattern")
     {
-        spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [thread %t] %v");
+        // %n : logger name 
+        // %L : level
+        // %t : thread
+        // spdlog::set_pattern("[%H:%M:%S][%n][%^%L%$][%t] %v");
+        spdlog::set_pattern("[%H:%M:%S][%^%L%$][%t] %v");
         spdlog::get("console")->info("hello console");
     }
 }
