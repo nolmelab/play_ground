@@ -11,7 +11,6 @@ namespace playground
   {
     get_instance().initialized_ = true;
 
-    spdlog::set_pattern("[%Y-%m-%d %H:%M:%S.%e] [%^%L%$][%t] %v");
     spdlog::init_thread_pool(32*1024, 1);
     auto stdout_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
     auto daily_sink = std::make_shared<spdlog::sinks::daily_file_sink_mt>("logs/system.log", 0, 0);
@@ -25,6 +24,7 @@ namespace playground
         spdlog::async_overflow_policy::block);
 
     spdlog::register_logger(logger);
+    spdlog::set_pattern("[%Y-%m-%d %H:%M:%S.%e] [%^%L%$][%t] %v");
   }
 
   std::shared_ptr<spdlog::logger> Logger::get()

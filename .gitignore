@@ -18,4 +18,5 @@ CMakeCache.txt
 build/
 
 *.cmake
+*.log
 **/*.log
