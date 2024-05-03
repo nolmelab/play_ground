@@ -2,6 +2,10 @@
 
 #include <playground/core/logger.hpp>
 
+/// test logger 
+/**
+ * checks with console or system*.log file under logs folder 
+ */
 TEST_CASE("test_logger")
 {
   SUBCASE("basic usage")
@@ -41,4 +45,15 @@ TEST_CASE("test_logger")
 
     playground::Logger::get()->flush();
   }
+
+  SUBCASE("thread id test")
+  {
+    PG_INFO("from main");
+
+    auto thread = std::thread([](){
+      PG_INFO("from thread");
+    });
+
+    thread.join();
+  } 
 }

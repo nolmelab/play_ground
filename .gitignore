@@ -19,3 +19,4 @@ build/
 
 *.cmake
 *.log
+logs/
