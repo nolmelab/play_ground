@@ -11,7 +11,7 @@ public:
   /// log assert failure into system log 
   static void log(bool cond, const char* expr, const char* file, int line);
 
-  /// call assert(). default disabled
+  /// call assert(). default enabled
   static void set_abort()
   {
     abort_ = true;
@@ -24,7 +24,7 @@ public:
   }
 
 private:
-  static inline bool abort_{false};
+  static inline bool abort_{true};
 };
 
 } // playground

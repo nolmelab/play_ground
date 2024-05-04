@@ -42,7 +42,16 @@ vscode can be an ide with cmake.
 
 - essential for vim programmer
 - how to do it on Ubuntu?
+  - install gnome-tweaks with apt
+  - it shows with desktop app. 기능개선
+  - additional keys option shows the ctrl key change option
+  - and lots more
 
+
+## shortcuts
+
+https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
+- the above link has a useful commands and shortcuts
 
 
 

@@ -3,6 +3,8 @@
 
 TEST_CASE("assert")
 {
+  playground::Assert::clear_abort();
+
   SUBCASE("basic failure")
   {
     PG_ASSERT( 1 > 3);

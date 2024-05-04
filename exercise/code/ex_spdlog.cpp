@@ -24,7 +24,7 @@ TEST_CASE("spdlog")
         std::vector<spdlog::sink_ptr> sinks{stdout_sink, daily_sink};
 
         auto logger = std::make_shared<spdlog::async_logger>(
-            "system", 
+            "exlog", 
             sinks.begin(), 
             sinks.end(), 
             spdlog::thread_pool(), 
@@ -32,7 +32,7 @@ TEST_CASE("spdlog")
         );
 
         spdlog::register_logger(logger);
-        spdlog::get("system")->info("hello system");
+        spdlog::get("exlog")->info("hello system");
     }
 
     /// set custom pattern
