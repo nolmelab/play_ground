@@ -115,7 +115,7 @@ Then the role and responsibility of Node will become clearer.
 ```c++
 TcpLinkServer<ChainCodec<SodiumCodec, LengthDelimitedCodec>, FlatbuffersTopicPacketizer> server;
 server.listen(endpoint, PG_LINK_CB(on_accepted), PG_LINK_CB(on_disconnected));
-server.get_packetizer().sub(login, PG_FB_CB(on_login));
+server.sub(login, PG_FB_CB(on_login));
 
 FlatbuffersTopicPacketizer::Ptr pkt;
 server.send(link_handle, pkt)
@@ -141,6 +141,35 @@ designing overall runtime behavior.
 - dispatching packets
 
 Look at more examples and think more on it.
+
+
+## exericse
+
+exercise in code:
+- chatting application 
+- json protocol 
+- loose implementation of: 
+  - Codec
+    - LineEndingCodec
+    - JsonKeyPacketizer
+  - Dispatcher
+    - DirectDispatcher
+    - ChatDispatcher
+  - TcpLinkServer
+  - TcpLink
+  - TcpLinkClient
+
+- chatting:
+  - search user
+  - send broadcast
+  - create a room 
+    - invite a user
+  - leave a room
+  - destroy a room
+
+- experiment:
+  - a strand for each room
+  - handles packets to a room through the strand
 
 
 

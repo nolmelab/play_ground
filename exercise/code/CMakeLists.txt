@@ -12,6 +12,8 @@ add_executable(
     ex_asio_tutorial.cpp
     ex_asio_example.cpp
     ex_c++.cpp
+    chat/chat_server.cpp
+    chat/chat_client.cpp
 )
 
 target_link_libraries(
