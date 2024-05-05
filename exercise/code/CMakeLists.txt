@@ -10,6 +10,8 @@ add_executable(
     ex_spdlog.cpp
     ex_asio_reading.cpp
     ex_asio_tutorial.cpp
+    ex_asio_example.cpp
+    ex_c++.cpp
 )
 
 target_link_libraries(

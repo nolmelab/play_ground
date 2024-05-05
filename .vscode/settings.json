@@ -4,6 +4,8 @@
         "CMAKE_TOOLCHAIN_FILE" : "/opt/vcpkg/scripts/buildsystems/vcpkg.cmake"
     },
     "files.associations": {
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "type_traits": "cpp",
+        "*.ipp": "cpp"
     }
 }
