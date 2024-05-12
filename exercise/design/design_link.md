@@ -131,7 +131,7 @@ ExecutionService<IoRunner> provides:
 - io runner
 - io_context reference provided from outisde
 
-### How can we use strands?
+### how can we use strands?
 
 It needs to understand completely to use strands. If not, there are risks in 
 designing overall runtime behavior. 
