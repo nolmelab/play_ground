@@ -105,4 +105,25 @@ TEST_CASE("libsodium")
     // nonce generation from initialization vector
     // key exchange
   }
+
+  SUBCASE("chacha20")
+  {
+    // https://github.com/vstakhov/libsodium-chacha20
+
+  }
+
+  SUBCASE("glossary")
+  {
+    // AEAD: https://en.wikipedia.org/wiki/Authenticated_encryption
+    // - authentication and encryption with associated data
+
+  }
+
+  SUBCASE("reading tests code")
+  {
+    // https://github.com/jedisct1/libsodium/tree/master/test/
+    // 
+
+
+  }
 }
