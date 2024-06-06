@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 project("ex_code" VERSION 0.1)
 
+add_subdirectory(collision)
+
 find_package(spdlog CONFIG REQUIRED)
 find_package(doctest CONFIG REQUIRED)
 find_package(unofficial-sodium CONFIG REQUIRED)
