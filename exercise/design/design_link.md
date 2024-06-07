@@ -63,7 +63,7 @@
 
 - IoRunner
   - ThreadIoRunner
-  - ThreadlessIoRunner
+  - ThreadlessIoRunner : ThreadIdRunner<0>
 
 ExecutionService<IoRunner> provides:
 - timer service
@@ -170,8 +170,3 @@ exercise in code:
 - experiment:
   - a strand for each room
   - handles packets to a room through the strand
-
-
-
-
-

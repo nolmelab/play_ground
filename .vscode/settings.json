@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "/home/nolmelab/codespace/playground/", 
+    "cmake.sourceDirectory": "/workspaces/playground", 
     "cmake.configureSettings": {
         "CMAKE_TOOLCHAIN_FILE" : "/opt/vcpkg/scripts/buildsystems/vcpkg.cmake"
     },
