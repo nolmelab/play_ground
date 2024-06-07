@@ -1,5 +1,7 @@
 #include <doctest/doctest.h>
 #include <sodium.h>
+#include <string_view>
+#include <stdlib.h>
 
 TEST_CASE("libsodium")
 {
@@ -70,7 +72,7 @@ TEST_CASE("libsodium")
     // https://doc.libsodium.org/secret-key_cryptography/secretbox
     // 
 
-    #define MESSAGE ((const unsigned char *) "test")
+    #define IN_MESSAGE ((const unsigned char *) "test")
     #define MESSAGE_LEN 4
     #define CIPHERTEXT_LEN (crypto_secretbox_MACBYTES + MESSAGE_LEN)
 
@@ -80,13 +82,14 @@ TEST_CASE("libsodium")
 
     crypto_secretbox_keygen(key);
     randombytes_buf(nonce, sizeof nonce);
-    crypto_secretbox_easy(ciphertext, MESSAGE, MESSAGE_LEN, nonce, key);
+    crypto_secretbox_easy(ciphertext, IN_MESSAGE, MESSAGE_LEN, nonce, key);
 
     unsigned char decrypted[MESSAGE_LEN];
     if (crypto_secretbox_open_easy(decrypted, ciphertext, CIPHERTEXT_LEN, nonce, key) != 0) {
       /* message forged! */
     }
 
+    // CHECK(
   }
 
   SUBCASE("key exchange")
