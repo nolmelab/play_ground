@@ -1,7 +1,11 @@
 #pragma once
 
+#include "math.hpp"
+
 #include <string>
 #include <vector>
+
+struct TGAImage;
 
 struct Face
 {
@@ -25,11 +29,6 @@ struct Face
     }
 };
 
-struct Vec3f
-{
-    float x, y, z;
-};
-
 /**
  * obj model format loader 
  */
@@ -49,6 +48,21 @@ struct Model
 
     std::vector<Face> faces;
     std::vector<Vec3f> verts;
+
+    size_t nfaces() 
+    {
+        return faces.size();
+    }
+
+    size_t nverts()
+    {
+        return verts.size();
+    }
+
+    const Vec3f& vert(int index)
+    {
+        return verts[index];
+    }
 
     // loads a model from filename of type 
     Error load(Type type, const std::string& filename);

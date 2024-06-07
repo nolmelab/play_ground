@@ -78,7 +78,9 @@ Because a simple and efficient renderer is required for game server programmers 
     - -pg -g -ggdb -O0 option makes gprof work
     - simple and powerful tool
 
-
+- wavefront obj loader and wireframe rendering 
+    - loader 
+    - rendering 
 
 
 

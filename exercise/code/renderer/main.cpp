@@ -1,123 +1,63 @@
-#include <renderer/tgaimage.hpp>
+#include "rasterizer.hpp"
+#include "model.hpp"
 
-void line_v1(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color) 
-{
-    int wx = x1 - x0;
-    int wy = y1 - y0;
-
-
-    for ( float t= 0.f; t<1.f; t += 0.01f) 
-    {
-        float dx = wx * t;
-        float dy = wy * t;
-        int x = x0 + dx;
-        int y = y0 + dy;
-        image.set(x, y, color);
-    }
-}
-
-void line_v2(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color) 
-{
-    float wx = x1 - x0;
-
-    for ( int x=x0; x<=x1; x++)
-    {
-        float rx = (x-x0) / wx;
-        int y = y0 + (y1 - y0) * rx;
-        image.set(x, y, color);
-    }
-}
-
-void line_v3(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color) 
-{
-    bool steep = false;
-    float wx = x1 - x0;
-
-    if ( std::abs(x0-x1) < std::abs(y0-y1))
-    {
-        std::swap(x0, y0);
-        std::swap(x1, y1);
-        steep = true;
-    }
-
-    if ( x0 > x1 )
-    {
-        std::swap(x0, x1);
-        std::swap(y0, y1);
-    }
-
-    for ( int x=x0; x<=x1; x++)
-    {
-        float rx = (x-x0)/wx;
-        int y = y0 + (y1 - y0) * rx;
-        if (steep)
-        {
-            image.set(y, x, color);
-        }
-        else 
-        {
-            image.set(x, y, color);
-        }
-    }
-}
-
-// this is the best line drawing algorithm
-void line_v4(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color) 
-{
-    bool steep = false;
-
-    if ( std::abs(x0-x1) < std::abs(y0-y1))
-    {
-        std::swap(x0, y0);
-        std::swap(x1, y1);
-        steep = true;
-    }
-
-    if ( x0 > x1 )
-    {
-        std::swap(x0, x1);
-        std::swap(y0, y1);
-    }
-
-    float dx = x1 - x0;
-    float dy = y1 - y0;
-    float derror = std::abs(dy/float(dx));
-    float error = 0;
-    int y = y0;
-
-    for ( int x=x0; x<=x1; x++)
-    {
-        if (steep)
-        {
-            image.set(y, x, color);
-        }
-        else 
-        {
-            image.set(x, y, color);
-        }
-        error += derror;
-        if (error > 0.5f)
-        {
-            y += (y1>y0? 1: -1);
-            error -= 1;
-        }
-    }
-}
+#include <iostream>
 
 const TGAColor white = TGAColor(255, 255, 255, 255);
 const TGAColor red = TGAColor(255, 0, 0, 255);
 
-int main()
+void test_line() 
 {
     TGAImage image(128, 128, TGAImage::RGB);
     const int test_count = 1;
     for ( int i=0; i<test_count; ++i)
     {
-        line_v4(13, 20, 80, 40, image, white);
-        line_v4(20, 13, 40, 80, image, red);
-        line_v4(80, 40, 13, 20, image, red);
+        line(13, 20, 80, 40, image, white);
+        line(20, 13, 40, 80, image, red);
+        line(80, 40, 13, 20, image, red);
     }
     image.write_tga_file("line_4.tga");
-    
+}
+
+void test_obj()
+{
+    const int width = 800;
+    const int height = 800;
+
+    Model model;
+    auto rc = model.load(Model::Type::WavefrontObj, "diablo_pose.obj");
+
+    if ( rc != Model::Error::Success)
+    {
+        std::cerr << "failed to load the model";
+        return;
+    }
+
+    TGAImage image(width, height, TGAImage::RGB);
+
+    for (int i=0; i<model.nfaces(); i++) 
+    {
+        auto& face = model.faces[i];
+
+        for (int j=0; j<3; j++) 
+        {
+            auto& v0 = model.vert(face[j]);
+            auto& v1 = model.vert(face[(j+1)%3]);
+            int x0 = (v0.x+1.)*width/2.;
+            int y0 = (v0.y+1.)*height/2.;
+            int x1 = (v1.x+1.)*width/2.;
+            int y1 = (v1.y+1.)*height/2.;
+            line(x0, y0, x1, y1, image, white);
+        }
+    }
+
+    image.flip_vertically(); 
+    image.write_tga_file("output.tga");
+}
+
+int main()
+{
+    test_obj();
+
     return 0;
 }
