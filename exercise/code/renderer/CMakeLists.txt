@@ -6,7 +6,10 @@ add_executable(
     rend 
     main.cpp 
     tgaimage.cpp
+    model.cpp
 )
+
+set(CMAKE_CXX_FLAGS "-O0 -ggdb -g -pg")
 
 # add include directories, especially playground
 target_include_directories(

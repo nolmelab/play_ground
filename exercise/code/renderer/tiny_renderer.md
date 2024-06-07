@@ -68,6 +68,19 @@ Because a simple and efficient renderer is required for game server programmers 
     - make the coordinates in [0, 1]
     - get dy from dx
 
+- step 3 enhancement: 
+    - steep line support 
+    - coordinate swap support when they are reversed
+
+- step 4 profiling: 
+    - use gprof 
+    - cmake option for clang to optimize
+    - -pg -g -ggdb -O0 option makes gprof work
+    - simple and powerful tool
+
+
+
+
 
 
 
