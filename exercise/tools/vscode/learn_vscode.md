@@ -53,11 +53,17 @@ vscode can be an ide with cmake.
 https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
 - the above link has a useful commands and shortcuts
 
+## cmake sourceDirectory
+
+- restart vscode
+- run cmake configure again
+- then it is fine 
 
 
 
 
 
 
+u
 
 

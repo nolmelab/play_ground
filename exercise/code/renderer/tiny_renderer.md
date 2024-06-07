@@ -82,6 +82,22 @@ Because a simple and efficient renderer is required for game server programmers 
     - loader 
     - rendering 
 
+obj rendering is a very nice exercise:
+- there was a bug in line drawing by an accident
+- very simple shapes like triangle, rect, sphere, pyramid are excellent for debugging
+    
+
+Bresenhem's algorithm:
+- the final version uses only integer operations
+- that's faster than using floating points
+- the idea to make it is not straightforward, but understandable. 
+- the idea can be visualized using integer girds
+    - selecting near points to draw
+    - developing idea to integer only operation requires to find an equivalent formula
+
+
+ 
+
 
 
 

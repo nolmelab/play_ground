@@ -35,24 +35,31 @@ void test_obj()
 
     TGAImage image(width, height, TGAImage::RGB);
 
+    int hw = width / 2;
+    int hh = height / 2; 
+
     for (int i=0; i<model.nfaces(); i++) 
     {
         auto& face = model.faces[i];
+
+        std::cout << "face: " << face[0] << ","  << face[1] << "," << face[2] << std::endl;
 
         for (int j=0; j<3; j++) 
         {
             auto& v0 = model.vert(face[j]);
             auto& v1 = model.vert(face[(j+1)%3]);
-            int x0 = (v0.x+1.)*width/2.;        // scale and move to the center
-            int y0 = (v0.y+1.)*height/2.;
-            int x1 = (v1.x+1.)*width/2.;
-            int y1 = (v1.y+1.)*height/2.;
+            int x0 = (v0.x+1.)*hw;        // scale and move to the center
+            int y0 = (v0.y+1.)*hh;
+            int x1 = (v1.x+1.)*hw;
+            int y1 = (v1.y+1.)*hh;
             line(x0, y0, x1, y1, image, white);
+
+            std::cout << "line " << j << ":" << x0 << "," << y0 << " - " << x1 << "," << y1 << std::endl; 
         }
     }
 
-    image.flip_vertically(); 
-    image.write_tga_file("diablo_pose.tga");
+    // image.flip_vertically(); 
+    image.write_tga_file("diablo3_pose.tga");
 }
 
 int main()
