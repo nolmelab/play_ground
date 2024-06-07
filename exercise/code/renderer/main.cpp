@@ -25,7 +25,7 @@ void test_obj()
     const int height = 800;
 
     Model model;
-    auto rc = model.load(Model::Type::WavefrontObj, "diablo_pose.obj");
+    auto rc = model.load(Model::Type::WavefrontObj, "diablo3_pose.obj");
 
     if ( rc != Model::Error::Success)
     {
@@ -43,7 +43,7 @@ void test_obj()
         {
             auto& v0 = model.vert(face[j]);
             auto& v1 = model.vert(face[(j+1)%3]);
-            int x0 = (v0.x+1.)*width/2.;
+            int x0 = (v0.x+1.)*width/2.;        // scale and move to the center
             int y0 = (v0.y+1.)*height/2.;
             int x1 = (v1.x+1.)*width/2.;
             int y1 = (v1.y+1.)*height/2.;
@@ -52,7 +52,7 @@ void test_obj()
     }
 
     image.flip_vertically(); 
-    image.write_tga_file("output.tga");
+    image.write_tga_file("diablo_pose.tga");
 }
 
 int main()

@@ -37,6 +37,9 @@ Model::Error Model::load_wavefront_obj(const std::string& filename)
             Vec3f v;
             iss >> v.x >> v.y >> v.z;
             verts.push_back(v);
+
+            // std::cerr << line << " orig " << std::endl;
+            // std::cerr << "v " << v.x << " " << v.y << " " << v.z << std::endl;
         } 
         else if (!line.compare(0, 2, "f ")) 
         {
@@ -47,8 +50,11 @@ Model::Error Model::load_wavefront_obj(const std::string& filename)
             iss >> v2>> trash >> itrash >> trash >> itrash;
             iss >> v3>> trash >> itrash >> trash >> itrash;
 
-            Face f{--v1, --v2, --v3};
+            Face f{--v1, --v2, --v3}; // obj index starts from 1
             faces.push_back(f);
+
+            // std::cerr << line << " orig " << std::endl;
+            // std::cerr << "f " << v1 << " " << v2 << " " << v3 << std::endl;
         }
         // vn : vertex normal 
         // vt : texuture coord
