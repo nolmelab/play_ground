@@ -62,9 +62,21 @@ void test_obj()
     image.write_tga_file("diablo3_pose.tga");
 }
 
+void test_triangle()
+{
+    const int width = 800;
+    const int height = 800;
+
+    TGAImage image(width, height, TGAImage::RGB);
+
+    triangle(Vec2i{0, 0}, Vec2i{800, 800}, Vec2i{400, 50}, image, white);
+
+    image.write_tga_file("triangle.tga");
+}
+
 int main()
 {
-    test_obj();
+    test_triangle();
 
     return 0;
 }
