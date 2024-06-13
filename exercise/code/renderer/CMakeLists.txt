@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
 find_package(spdlog CONFIG REQUIRED)
+find_package(glm CONFIG REQUIRED)
 
 add_executable(
     rend 
@@ -17,3 +18,5 @@ target_include_directories(
   PRIVATE "${CMAKE_SOURCE_DIR}/include"
   PRIVATE "${CMAKE_SOURCE_DIR}/exercise/code"
 )
+
+target_link_libraries(rend PRIVATE glm::glm-header-only)

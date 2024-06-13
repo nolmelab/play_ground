@@ -69,7 +69,7 @@ void test_triangle()
 
     TGAImage image(width, height, TGAImage::RGB);
 
-    triangle(Vec2i{0, 0}, Vec2i{800, 800}, Vec2i{400, 50}, image, white);
+    triangle(glm::vec2{0, 0}, glm::vec2{800, 800}, glm::vec2{400, 50}, image, white);
 
     image.write_tga_file("triangle.tga");
 }

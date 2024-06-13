@@ -46,6 +46,8 @@ struct Model
         Error_UnsupportedFormat
     };
 
+    using Vec3f = glm::fvec3;
+
     std::vector<Face> faces;
     std::vector<Vec3f> verts;
 

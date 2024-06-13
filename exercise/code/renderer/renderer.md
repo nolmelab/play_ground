@@ -10,6 +10,30 @@ To achieve this, some research is necessary.
 Finish the tinyrenderer course in 3 days.
 
 
+## use glm
+
+design renderer interface. Look at software opengl renderer.
+
+
+## software opengl renderer
+
+Mesa or else. 
+
+- https://github.com/keith2018/SoftGLRender/tree/main
+  - has opengl, vulkan, sofware renderers
+  - a very simple interface to draw
+
+- mesa seems to be too big to follow, but tempting
+
+- https://github.com/zauonlok/renderer
+  - this is pure software renderer
+  - which seems to be the best in 10 min search
+
+
+
+
+
+
 
 
 ## resources

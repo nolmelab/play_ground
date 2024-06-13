@@ -53,14 +53,14 @@ inline void line(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color
     line_v3(x0, y0, x1, y1, image, color);
 }
 
-inline void triangle_v1(const Vec2i& v0, const Vec2i& v1, const Vec2i& v2, TGAImage& image, TGAColor color)
+inline void triangle_v1(const glm::ivec2& v0, const glm::ivec2& v1, const glm::ivec2& v2, TGAImage& image, TGAColor color)
 {
     line(v0.x, v0.y, v1.x, v1.y, image, color);
     line(v1.x, v1.y, v2.x, v2.y, image, color);
     line(v2.x, v2.y, v0.x, v0.y, image, color);
 }
 
-inline void triangle_v2(const Vec2i& v0, const Vec2i& v1, const Vec2i& v2, TGAImage& image, TGAColor color)
+inline void triangle_v2(glm::ivec2& v0, glm::ivec2& v1, glm::ivec2& v2, TGAImage& image, TGAColor color)
 {
     if (v0.y > v1.y) std::swap(v0, v1);
     if (v0.y > v2.y) std::swap(v0, v2);
@@ -71,7 +71,7 @@ inline void triangle_v2(const Vec2i& v0, const Vec2i& v1, const Vec2i& v2, TGAIm
     line(v2.x, v2.y, v0.x, v0.y, image, color);
 }
 
-void triangle_v3(Vec2i t0, Vec2i t1, Vec2i t2, TGAImage &image, TGAColor color) 
+inline void triangle_v3(glm::vec2& t0, glm::vec2& t1, glm::vec2& t2, TGAImage& image, TGAColor color)
 { 
     // sort the vertices, t0, t1, t2 lower−to−upper (bubblesort yay!) 
     if (t0.y>t1.y) std::swap(t0, t1); 
@@ -82,8 +82,8 @@ void triangle_v3(Vec2i t0, Vec2i t1, Vec2i t2, TGAImage &image, TGAColor color)
         int segment_height = t1.y-t0.y+1; 
         float alpha = (float)(y-t0.y)/total_height; 
         float beta  = (float)(y-t0.y)/segment_height; // be careful with divisions by zero 
-        Vec2i A = t0 + (t2-t0)*alpha; 
-        Vec2i B = t0 + (t1-t0)*beta; 
+        auto A = t0 + (t2-t0)*alpha; 
+        auto B = t0 + (t1-t0)*beta; 
         if (A.x>B.x) std::swap(A, B); 
         for (int j=A.x; j<=B.x; j++) { 
             image.set(j, y, color); // attention, due to int casts t0.y+i != A.y 
@@ -93,8 +93,8 @@ void triangle_v3(Vec2i t0, Vec2i t1, Vec2i t2, TGAImage &image, TGAColor color)
         int segment_height =  t2.y-t1.y+1; 
         float alpha = (float)(y-t0.y)/total_height; 
         float beta  = (float)(y-t1.y)/segment_height; // be careful with divisions by zero 
-        Vec2i A = t0 + (t2-t0)*alpha; 
-        Vec2i B = t1 + (t2-t1)*beta; 
+        auto A = t0 + (t2-t0)*alpha; 
+        auto B = t1 + (t2-t1)*beta; 
         if (A.x>B.x) std::swap(A, B); 
         for (int j=A.x; j<=B.x; j++) { 
             image.set(j, y, color); // attention, due to int casts t0.y+i != A.y 
@@ -102,7 +102,7 @@ void triangle_v3(Vec2i t0, Vec2i t1, Vec2i t2, TGAImage &image, TGAColor color)
     } 
 }
 
-inline void triangle(const Vec2i& v0, const Vec2i& v1, const Vec2i& v2, TGAImage& image, TGAColor color)
+inline void triangle(glm::vec2& v0, glm::vec2& v1, glm::vec2& v2, TGAImage& image, TGAColor color)
 {
     triangle_v1(v0, v1, v2, image, color);
 }
