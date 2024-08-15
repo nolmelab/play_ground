@@ -1,11 +1,11 @@
 {
-    "cmake.sourceDirectory": "/home/nolmelab/codespace/playground", 
-    "cmake.configureSettings": {
-        "CMAKE_TOOLCHAIN_FILE" : "/opt/vcpkg/scripts/buildsystems/vcpkg.cmake"
-    },
-    "files.associations": {
-        "filesystem": "cpp",
-        "type_traits": "cpp",
-        "*.ipp": "cpp"
-    }
+  "cmake.sourceDirectory": "/home/kdpark/playground",
+  "cmake.configureSettings": {
+    "CMAKE_TOOLCHAIN_FILE": "/var/opt/vcpkg/scripts/buildsystems/vcpkg.cmake"
+  },
+  "files.associations": {
+    "filesystem": "cpp",
+    "type_traits": "cpp",
+    "*.ipp": "cpp"
+  }
 }
